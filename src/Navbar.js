@@ -4,7 +4,9 @@ import "./Nav.module.css";
 import { Link } from "react-router-dom";
 import { menuData } from "./data/MenuData";
 import { Button } from "./Button";
-
+import { faBars } from "react-icons/fa";
+import { CgMenuRight } from "react-icons/fa";
+import {FaTwitter} from "react-icons/fa";
 const Nav = styled.nav`
   height: 60px;
   display: flex;
@@ -15,6 +17,7 @@ const Nav = styled.nav`
   position: fixed;
   z-index: 100;
   background: #000;
+  background: red;
 `;
 
 const NavLink = css`
@@ -33,10 +36,28 @@ const Logo = styled(Link)`
   font-style: italic;
 `;
 
-const MenuBars = styled.i``;
+const MenuBars = styled.i`
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: block;
+    background-color: black;
+    background-image: url(${faBars});
+    background-size: contain;
+    height: 40px;
+    widht: 40px;
+    cursor: pointer;
+  }
+`;
+
 const NavMenu = styled.div`
   display: flex;
   align-items: center;
+  margin-right: -48px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 const NavMenuLink = styled(Link)`
   ${NavLink}
@@ -46,6 +67,10 @@ const NavBtn = styled.div`
   display: flex;
   align-items: center;
   margin-right: 24px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export default function Navbar() {
@@ -64,8 +89,12 @@ export default function Navbar() {
           })}
         </NavMenu>
         <NavBtn>
-          <Button to="/contact">contact me</Button>
+          <Button to="/contact" primary="true">
+            contact me
+          </Button>
         </NavBtn>
+        <CgMenuRight/>
+        <FaTwitter/>
       </Nav>
     </>
   );
