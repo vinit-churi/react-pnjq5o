@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import "./Nav.module.css";
 import { Link } from "react-router-dom";
 import { menuData } from "./data/MenuData";
+import { Button } from "./Button";
 
 const Nav = styled.nav`
   height: 60px;
@@ -41,6 +42,12 @@ const NavMenuLink = styled(Link)`
   ${NavLink}
 `;
 
+const NavBtn = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+`;
+
 export default function Navbar() {
   return (
     <>
@@ -56,6 +63,9 @@ export default function Navbar() {
             );
           })}
         </NavMenu>
+        <NavBtn>
+          <Button to="/contact">contact me</Button>
+        </NavBtn>
       </Nav>
     </>
   );
